@@ -32,6 +32,13 @@ transform=transforms.Compose([
                               transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
                               ])
 
+class WrappedModel(nn.Module):
+    def __init__(self, module):
+        super(WrappedModel, self).__init__()
+        self.module = module # that I actually define.
+    def forward(self, x):
+        return self.module(x)
+
 # Load the pretrained model from pytorch
 vgg16 = models.vgg16_bn(pretrained=True)
 #print(vgg16.classifier[6].out_features) # 1000
@@ -54,6 +61,7 @@ else:
 vgg16.to(device)
 
 # upload pretrained weights from beauty labeled dataset
+vgg16 = WrappedModel(vgg16)
 vgg16.load_state_dict(torch.load(opt.model))
 vgg16.eval()
 
