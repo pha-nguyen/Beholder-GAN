@@ -107,6 +107,8 @@ python beautify_image.py --results_dir experiment_folder --image_path samples/je
 This will train an algorithm to restore the given image, and beautify it.  
   
 We provide a pretrained model to compute the loss from VGG's extracted features: [models](https://drive.google.com/open?id=1JjILX0echkgxOZSHO3h6xuDpvN-FKD-m). 
+
+Network pkl is downloaded from [here](https://drive.google.com/drive/folders/15hvzxt_XxuokSmj0uO4xxMTMWVc0cIMU)
   
 ## Acknowledgments  
 The research was funded by ERC StG RAPID.  
